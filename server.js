@@ -7,6 +7,9 @@ const app = express();
 // Connect to the MongoDB database
 connectMongoDB();
 
+// Middleware
+app.use(express.json({ extended: false }));
+
 app.get("/", (req, res) => res.send("Server is running"));
 
 // Define routes
