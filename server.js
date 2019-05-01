@@ -9,6 +9,10 @@ connectMongoDB();
 
 app.get("/", (req, res) => res.send("Server is running"));
 
+// Define routes
+app.use("/api/users", require("./routes/api/users"));
+app.use("/api/auth", require("./routes/api/auth"));
+
 // Run on port 5000 locally, otherwise port indicate by environment variable
 const port = process.env.PORT || 5000;
 
