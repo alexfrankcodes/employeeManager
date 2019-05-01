@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 // Define User schema
-const UserSchema = new mongoose.Schema({
+const UserSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -20,9 +21,9 @@ const UserSchema = new mongoose.Schema({
     required: true
   },
   date: {
-    type: DataCue,
+    type: Date,
     default: Date.now
   }
 });
 
-module.exports = User = mongoose.model = ("user", UserSchema);
+module.exports = User = mongoose.model("users", UserSchema);
