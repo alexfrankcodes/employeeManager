@@ -1,7 +1,17 @@
 # Employee Manager (CMPE 172)
 
-### How to Run Server
+## Scripts
 
-1. Clone repo
-2. cd into root folder and run "npm install"
-3. run "npm run server"
+The following are development scripts included in package.json to run all/part of the application.
+
+### Full
+
+`npm run dev`
+
+### Front-End
+
+`npm run client`
+
+### Back-End
+
+`npm run server`
