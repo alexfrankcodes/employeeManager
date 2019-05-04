@@ -11,17 +11,15 @@ connectMongoDB();
 // Middleware
 app.use(express.json({ extended: false }));
 
-app.get("/", (req, res) => res.send("Server is running"));
-
 // Define routes
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/auth", require("./routes/api/auth"));
 
-// Check if in production
+// Check if in production - if so, serve static assets
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
 
