@@ -1,5 +1,6 @@
 const express = require("express");
 const connectMongoDB = require("./config/db");
+const path = require("path");
 
 // Initialize app
 const app = express();
@@ -15,6 +16,14 @@ app.get("/", (req, res) => res.send("Server is running"));
 // Define routes
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/auth", require("./routes/api/auth"));
+
+// Check if in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  });
+}
 
 // Run on port 5000 locally, otherwise port indicate by environment variable
 const port = process.env.PORT || 5000;
