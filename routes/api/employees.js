@@ -20,7 +20,7 @@ router.get("/departments", async (req, res) => {
 // @access  Public
 router.get("/dept_emp", async (req, res) => {
   try {
-    let results = await db.dept_emp("SELECT * FROM dept_emp WHERE 1=0");
+    let results = await db.dept_emp("SELECT * FROM dept_emp");
     res.json(results);
   } catch (err) {
     console.log(err);
