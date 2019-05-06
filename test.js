@@ -1,9 +1,8 @@
 const assert = require("chai").assert;
-const serverRunning = require("./server").serverIsRunning();
+const app = require("./server");
 
-describe("Server", () => {
-  it('Server should return "Server running'),
-    () => {
-      assert.equal(serverRunning, "Server running");
-    };
+describe("Basic Mocha test", function() {
+  it("Should pass if the server is initialized", function() {
+    assert.exists(app);
+  });
 });
