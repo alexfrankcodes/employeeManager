@@ -42,7 +42,12 @@ export default class Dashboard extends Component {
 
     return (
       <div className="scrollable">
-        <ReactTable data={this.state.employees} columns={columns} />
+        <ReactTable
+          data={this.state.employees}
+          columns={columns}
+          defaultPageSize={10}
+          filterable={true}
+        />
       </div>
     );
   }
